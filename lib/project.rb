@@ -18,7 +18,6 @@ class Project
   end
   
 	def add_backer(backer)
-    self.backer = Backer.find_or_create_by_name(backer)
-    backer.find_or_create_by_name(self)
+    @backers << backer.tap {|b| b.backed_projects << self}
 	end
 end
