@@ -3,7 +3,7 @@ class Project
 
 	@@all = []
 
-	def initialize
+	def initialize(name)
 	  @name = name
 		@backers = []
 		save
