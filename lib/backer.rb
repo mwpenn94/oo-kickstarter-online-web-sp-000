@@ -14,7 +14,7 @@ class Backer
 	end
 
   def self.find_or_create_by_name(backer_name)
-    self.find(backer_name) ? self.find(backer_name) : self.new(backer_name)
+    self.tap.find(backer_name) ? self.tap.find(backer_name) : self.tap.new(backer_name)
   end
   
 	def back_project(project)
