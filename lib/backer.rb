@@ -13,12 +13,7 @@ class Backer
 	  @@all << self
 	end
 
-  def self.find_or_create_by_name(backer_name)
-    self.tap.find(backer_name) ? self.tap.find(backer_name) : self.tap.new(backer_name)
-  end
-  
-	def back_project(project)
-    self.project = Project.find_or_create_by_name(project)
-    project.find_or_create_by_name(self)
+  def back_project(project)
+    @backed_projects << project.tap {|p| p.add_backer(self)}
 	end
 end
