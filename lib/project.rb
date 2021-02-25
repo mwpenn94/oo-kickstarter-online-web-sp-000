@@ -1,5 +1,6 @@
 class Project
-	attr_accessor	:title, :backers
+	attr_accessor	:backers
+	attr_reader :title
 
 	@@all = []
 
