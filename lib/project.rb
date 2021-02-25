@@ -17,7 +17,7 @@ class Project
     self.find(project_name) ? self.find(project_name) : self.new(project_name)
   end
   
-	def add_backer(backer)
-    @backers << backer.tap {|b| b.backed_projects << self}
+	def back_project(project)
+    @backed_projects << project.tap {|p| p.add_backer(self)}
 	end
 end
