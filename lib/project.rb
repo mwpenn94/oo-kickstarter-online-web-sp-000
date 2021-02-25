@@ -14,7 +14,7 @@ class Project
     @@all << self
   end
   
-	def back_project(project)
-    @backed_projects << project.tap {|p| p.add_backer(self)}
-	end
+	def add_backer(backer)
+    @backers << backer.tap {|b| b.backed_projects << self}
+  end
 end
